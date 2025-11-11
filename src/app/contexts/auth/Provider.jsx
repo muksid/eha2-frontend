@@ -1,13 +1,14 @@
 // Import Dependencies
-import { useEffect, useReducer } from "react";
+import {useEffect, useReducer} from "react";
 import isObject from "lodash/isObject";
 import PropTypes from "prop-types";
 import isString from "lodash/isString";
 
 // Local Imports
 import axios from "utils/axios";
-import { isTokenValid, setSession } from "utils/jwt";
-import { AuthContext } from "./context";
+import {isTokenValid, setSession} from "utils/jwt";
+import {AuthContext} from "./context";
+import {AUTH_USER_URL, LOGIN_URL, SANCTUM_COOKIE_URL} from "../../../constants/api.urls.js";
 
 // ----------------------------------------------------------------------
 
@@ -21,7 +22,7 @@ const initialState = {
 
 const reducerHandlers = {
   INITIALIZE: (state, action) => {
-    const { isAuthenticated, user } = action.payload;
+    const {isAuthenticated, user} = action.payload;
     return {
       ...state,
       isAuthenticated,
@@ -38,7 +39,7 @@ const reducerHandlers = {
   },
 
   LOGIN_SUCCESS: (state, action) => {
-    const { user } = action.payload;
+    const {user} = action.payload;
     return {
       ...state,
       isAuthenticated: true,
@@ -48,7 +49,7 @@ const reducerHandlers = {
   },
 
   LOGIN_ERROR: (state, action) => {
-    const { errorMessage } = action.payload;
+    const {errorMessage} = action.payload;
 
     return {
       ...state,
@@ -72,7 +73,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-export function AuthProvider({ children }) {
+export function AuthProvider({children}) {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -83,8 +84,9 @@ export function AuthProvider({ children }) {
         if (authToken && isTokenValid(authToken)) {
           setSession(authToken);
 
-          const response = await axios.get("/user/profile");
-          const { user } = response.data;
+          const response = await axios.get(AUTH_USER_URL);
+
+          const {user} = response.data;
 
           dispatch({
             type: "INITIALIZE",
@@ -117,24 +119,26 @@ export function AuthProvider({ children }) {
     init();
   }, []);
 
-  const login = async ({ username, password }) => {
+  const login = async ({login, password}) => {
     dispatch({
       type: "LOGIN_REQUEST",
     });
 
     try {
-      const response = await axios.post("/login", {
-        username,
+      await axios.get(SANCTUM_COOKIE_URL);
+
+      const response = await axios.post(LOGIN_URL, {
+        login,
         password,
-      });
+      }, {withCredentials: true});
 
-      const { authToken, user } = response.data;
+      const {token, user} = response.data;
 
-      if (!isString(authToken) && !isObject(user)) {
+      if (!isString(token) && !isObject(user)) {
         throw new Error("Response is not vallid");
       }
 
-      setSession(authToken);
+      setSession(token);
 
       dispatch({
         type: "LOGIN_SUCCESS",
@@ -154,7 +158,7 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     setSession(null);
-    dispatch({ type: "LOGOUT" });
+    dispatch({type: "LOGOUT"});
   };
 
   if (!children) {
@@ -162,15 +166,15 @@ export function AuthProvider({ children }) {
   }
 
   return (
-    <AuthContext
-      value={{
-        ...state,
-        login,
-        logout,
-      }}
-    >
-      {children}
-    </AuthContext>
+      <AuthContext
+          value={{
+            ...state,
+            login,
+            logout,
+          }}
+      >
+        {children}
+      </AuthContext>
   );
 }
 

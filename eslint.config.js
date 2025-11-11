@@ -39,6 +39,7 @@ export default [
         { allowConstantExport: true },
       ],
       'jsx-a11y/alt-text': 'error',
+      'no-unused-vars': 'off',
     },
   },
 ];

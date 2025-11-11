@@ -11,4 +11,13 @@ export default defineConfig({
   plugins: [react(), jsconfigPaths(), svgr(),
   eslint(), tailwindcss(),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://172.17.110.54:3399', // адрес Laravel сервера
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+  },
 })

@@ -31,7 +31,7 @@ const data = flattenNav([...navigation,settings]);
 
 export function Search({ renderButton }) {
   const [isOpen, { open, close }] = useDisclosure(false);
-  
+
   useHotkeys("/", () => open(), {
     ignoreModifiers: true,
     preventDefault: true,
@@ -170,7 +170,6 @@ function flattenNav(items) {
   let flatArray = [];
   items.forEach((item) => {
     if (item.path && item.type !== NAV_TYPE_COLLAPSE) {
-      // eslint-disable-next-line no-unused-vars
       const { type, transKey, ...filteredItem } = item;
       flatArray.push(filteredItem);
     }
