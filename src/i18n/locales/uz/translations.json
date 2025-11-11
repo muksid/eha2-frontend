@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "dashboards": {
+      "dashboards": "Boshqaruv panellari",
+      "home": "Bosh sahifa",
+      "departments": "Bo‘limlar"
+    },
+    "settings": {
+      "settings": "Sozlamalar",
+      "general": "Umumiy",
+      "appearance": "Ko‘rinish"
+    }
+  }
+}

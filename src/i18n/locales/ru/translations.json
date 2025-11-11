@@ -1,0 +1,14 @@
+{
+  "nav": {
+    "dashboards": {
+      "dashboards": "Панели",
+      "home": "Главная",
+      "departments": "Отделы"
+    },
+    "settings": {
+      "settings": "Настройки",
+      "general": "Общие",
+      "appearance": "Внешний вид"
+    }
+  }
+}
