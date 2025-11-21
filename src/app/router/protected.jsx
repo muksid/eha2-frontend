@@ -39,6 +39,12 @@ const protectedRoutes = {
                 Component: (await import("app/pages/dashboards/departments")).default,
               }),
             },
+            {
+              path: "editor",
+              lazy: async () => ({
+                Component: (await import("app/pages/dashboards/editor")).default,
+              }),
+            },
           ],
         },
       ],

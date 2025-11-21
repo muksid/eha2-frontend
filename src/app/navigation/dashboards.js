@@ -30,5 +30,13 @@ export const dashboards = {
             transKey: 'nav.dashboards.departments',
             Icon: HomeIcon,
         },
+        {
+            id: 'dashboards.editor',
+            path: path(ROOT_DASHBOARDS, '/editor'),
+            type: NAV_TYPE_ITEM,
+            title: 'Editor',
+            transKey: 'nav.dashboards.editor',
+            Icon: HomeIcon,
+        },
     ]
 }
