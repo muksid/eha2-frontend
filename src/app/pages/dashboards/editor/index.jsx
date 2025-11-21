@@ -7,7 +7,9 @@ export default function Editor() {
     const [config, setConfig] = useState(null);
     const [token, setToken] = useState(null);
     const [shouldRenderEditor, setShouldRenderEditor] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
     const editorInstanceRef = useRef(null);
+    const docEditorRef = useRef(null);
 
     useEffect(() => {
         fetch(`${BASE_URL}/api/onlyoffice/config`)
@@ -15,19 +17,15 @@ export default function Editor() {
             .then(data => {
                 setConfig(data.config);
                 setToken(data.token);
-                // Даём время на подгрузку конфига
                 setTimeout(() => setShouldRenderEditor(true), 100);
             })
             .catch(err => console.error('Config load error:', err));
 
-        // Cleanup при размонтировании
         return () => {
             setShouldRenderEditor(false);
 
-            // Задержка для корректного удаления
             setTimeout(() => {
                 try {
-                    // Очищаем все инстансы OnlyOffice
                     if (window.DocEditor && window.DocEditor.instances) {
                         Object.keys(window.DocEditor.instances).forEach(key => {
                             const instance = window.DocEditor.instances[key];
@@ -37,7 +35,6 @@ export default function Editor() {
                         });
                     }
 
-                    // Удаляем iframe если остался
                     const iframes = document.querySelectorAll('iframe[name^="frameEditor"]');
                     iframes.forEach(iframe => {
                         if (iframe.parentNode) {
@@ -54,6 +51,35 @@ export default function Editor() {
     const handleDocumentReady = (event) => {
         console.log("Document is loaded");
         editorInstanceRef.current = event;
+
+        // Получаем инстанс редактора
+        docEditorRef.current = window.DocEditor.instances['docxEditor'];
+    };
+
+    // Функция для принудительного сохранения
+    const handleSaveDocument = () => {
+        if (!docEditorRef.current) {
+            console.error('Editor instance not found');
+            return;
+        }
+
+        setIsSaving(true);
+
+        try {
+            // Метод 1: processSaveResult (рекомендуемый)
+            docEditorRef.current.processSaveResult(true);
+
+            console.log('Save command sent to OnlyOffice');
+
+            // Показываем уведомление
+            setTimeout(() => {
+                setIsSaving(false);
+                alert('Документ отправлен на сохранение');
+            }, 1000);
+        } catch (error) {
+            console.error('Error saving document:', error);
+            setIsSaving(false);
+        }
     };
 
     if (!config || !token || !shouldRenderEditor) {
@@ -68,7 +94,19 @@ export default function Editor() {
 
     return (
         <Page title="Editor">
-            <div style={{ width: '100%', height: 'calc(100vh - 64px)' }}>
+            {/* Кнопка сохранения */}
+            <div className="flex items-center justify-between px-4 py-2 bg-white dark:bg-gray-800 border-b">
+                <h2 className="text-lg font-semibold">Document Editor</h2>
+                <button
+                    onClick={handleSaveDocument}
+                    disabled={isSaving}
+                    className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+                >
+                    {isSaving ? 'Сохранение...' : 'Сохранить документ'}
+                </button>
+            </div>
+
+            <div style={{ width: '100%', height: 'calc(100vh - 112px)' }}>
                 <DocumentEditor
                     id="docxEditor"
                     documentServerUrl={ONLY_OFFICE_DOCUMENT_SERVER_URL}
