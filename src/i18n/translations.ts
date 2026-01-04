@@ -1,0 +1,456 @@
+export type Language = 'uz' | 'ru' | 'en';
+
+export const translations = {
+  uz: {
+    // Profile
+    profile: 'Profil',
+    settings: 'Sozlamalar',
+    logout: 'Chiqish',
+    
+    // Dashboard
+    dashboard: 'Dashboard',
+    dashboardEmpty: "Hech narsa qo'shilmagan. Menyularni sichqonchaning o'ng tugmasi bilan bosib \"Dashboardga qo'shish\" ni tanlang.",
+    addToDashboard: "Dashboardga qo'shish",
+    removeFromDashboard: "Dashboarddan o'chirish",
+    
+    // Messages
+    messages: 'Xabarlar',
+    groups: 'Guruhlar',
+    writeMessage: 'Xabar yozish',
+    writeToGroups: 'Guruhlarga xabar yozish',
+    composeMessage: 'Xabar yozish',
+    unreadMessages: "O'qilmagan xabarlar",
+    sentMessages: 'Yuborilgan xabarlar',
+    archiveMessages: "O'qilgan xabarlar (Arxiv)",
+    createGroup: 'Guruh yaratish',
+    editGroup: 'Guruhni tahrirlash',
+    deleteGroup: "Guruhni o'chirish",
+    myGroups: 'Mening guruhlarim',
+    
+    // Sent
+    sent: 'Yuborilgan',
+    forExecution: 'Bajarish uchun',
+    hrOrders: 'Tanishish uchun buyruq (HR)',
+    hrXsb: 'Tanishish uchun XSB (HR)',
+    forAgreement: 'Kelishish uchun',
+    additionalAgreements: "Qo'shimcha kelishuvlar (HR)",
+    hrProtocols: 'HR protokollari (imzo uchun)',
+    
+    // Documents
+    documents: 'Hujjatlar',
+    sentDocuments: 'Yuborilgan',
+    accountingStatements: 'Buxg. Bayonnomalari',
+    annualSchedule: 'Yillik reja jadvali',
+    departmentApplications: 'Departament arizalari',
+    annualPlanList: "Yillik reja ro'yhati",
+    
+    // My Documents
+    myDocuments: 'Mening hujjatlarim',
+    createDocument: 'Hujjat yaratish',
+    myApplications: 'Mening arizalarim',
+    workDocuments: 'Ishchi hujjatlar',
+    outgoingDocuments: 'Kans. Chiquvchi hujjatlar',
+    personalFile: 'Shaxsiy ish (HR)',
+    
+    // Arizalar
+    applications: 'Arizalar',
+    hrApplications: 'Kadr arizalari',
+    accountingApplications: 'Buxgalteriya arizalari',
+    securityApplications: 'Xavfsizlik arizalari',
+    notifications: 'Bildirishnomalar',
+    
+    // Search
+    search: 'Qidirish...',
+    viewAll: "Barchasini ko'rish",
+    
+    // My Tasks
+    myTasks: 'Mening vazifalarim',
+    myTasksDesc: 'Bugungi vazifalaringizni boshqaring',
+    addNew: 'Yangi qo\'shish',
+    list: 'Ro\'yxat',
+    calendar: 'Taqvim',
+    table: 'Jadval',
+    displayAll: 'Barcha vazifalar',
+    recentTasks: 'So\'nggi vazifalar',
+    dailyProgress: 'Kunlik progress',
+    completed: 'bajarildi',
+    taskCompleted: 'BAJARILDI',
+    inProgress: 'Jarayonda',
+    pending: 'Kutilmoqda',
+    mon: 'Du',
+    tue: 'Se',
+    wed: 'Cho',
+    thu: 'Pa',
+    fri: 'Ju',
+    sat: 'Sha',
+    sun: 'Ya',
+    today: 'BUGUN',
+    taskGroups: 'Vazifa guruhlari',
+    
+    // Dashboard2
+    colorPalette: 'Rang palitrasi tanlash',
+    limits: 'Limitlar',
+    todaysTasks: 'Bugungi vazifalar',
+    todaysMeetings: 'Bugungi uchrashuvlar',
+    manage: 'Boshqarish',
+    scheduleMeeting: 'Uchrashuv rejalashtirish',
+    activity: 'Faollik',
+    projectsWorked: 'Ishlangan loyihalar',
+    projects: 'loyihalar',
+    reminders: 'Eslatmalar',
+    filter: 'Filtr',
+    week: 'Hafta',
+    month: 'Oy',
+    year: 'Yil',
+    
+    // Task titles
+    customerJourney: 'Mijoz sayohati',
+    sprintCeremony: 'Sprint marosimi',
+    sendReport: 'Hisobot yuborish',
+    createDataStudio: 'Data studio dashboard yaratish',
+    updateDesignSystem: 'Dizayn tizimini yangilash',
+    sendMonthlyReport: 'Oylik hisobotni yuborish',
+    sprintPlanning: 'Sprint rejalashtirish',
+    reviewDesignComponent: 'Dizayn komponentini ko\'rib chiqish',
+    sprintRetrospective: 'Sprint retrospektivi',
+    workOnSignIn: 'Facebook orqali kirish ustida ishlash',
+    recoveryPassword: 'Parolni tiklash',
+    createLocalDatabase: 'Lokal database yaratish',
+    
+    // Kanban
+    projectTitle: 'Food delivery Web/App Design',
+    myTasksColumn: 'My Tasks',
+    toDo: 'To Do',
+    done: 'Done',
+    onHold: 'On Hold',
+    addTask: 'Vazifa qo\'shish',
+    addNewTask: 'Yangi vazifa qo\'shish',
+    listView: 'Ro\'yxat ko\'rinishi',
+    kanbanView: 'Kanban ko\'rinishi',
+    filters: 'Filtrlar',
+    share: 'Ulashish',
+    taskTitle: 'Vazifa nomi',
+    enterTaskTitle: 'Vazifa nomini kiriting',
+    priority: 'Ustuvorlik',
+    low: 'Past',
+    medium: 'O\'rta',
+    high: 'Yuqori',
+    column: 'Ustun',
+    selectColumn: 'Ustunni tanlang',
+    
+    // Todo & Progress
+    todos: 'Vazifalar',
+    items: 'ta',
+    addNewTodo: 'Yangi vazifa qo\'shing',
+    todoProgress: 'Vazifa jarayoni',
+    
+    // New dashboard keys
+    manageTasksForToday: "Bugungi vazifalarni boshqaring",
+    edit: 'Tahrirlash',
+    delete: "O'chirish",
+    editTask: 'Vazifani tahrirlash',
+    saveChanges: "O'zgarishlarni saqlash",
+  },
+  ru: {
+    // Profile
+    profile: 'Профиль',
+    settings: 'Настройки',
+    logout: 'Выход',
+    
+    // Dashboard
+    dashboard: 'Панель управления',
+    dashboardEmpty: 'Ничего не добавлено. Нажмите правой кнопкой мыши на меню и выберите "Добавить на панель".',
+    addToDashboard: 'Добавить на панель',
+    removeFromDashboard: 'Удалить с панели',
+    
+    // Messages
+    messages: 'Сообщения',
+    groups: 'Группы',
+    writeMessage: 'Написать сообщение',
+    writeToGroups: 'Написать группам',
+    composeMessage: 'Написать сообщение',
+    unreadMessages: 'Непрочитанные',
+    sentMessages: 'Отправленные',
+    archiveMessages: 'Прочитанные (Архив)',
+    createGroup: 'Создать группу',
+    editGroup: 'Редактировать группу',
+    deleteGroup: 'Удалить группу',
+    myGroups: 'Мои группы',
+    
+    // Sent
+    sent: 'Отправленные',
+    forExecution: 'На исполнение',
+    hrOrders: 'Приказы HR (ознакомление)',
+    hrXsb: 'ХСБ HR (ознакомление)',
+    forAgreement: 'На согласование',
+    additionalAgreements: 'Доп. соглашения (HR)',
+    hrProtocols: 'Протоколы HR (на подпись)',
+    
+    // Documents
+    documents: 'Документы',
+    sentDocuments: 'Отправленные',
+    accountingStatements: 'Бухг. ведомости',
+    annualSchedule: 'Годовой график',
+    departmentApplications: 'Заявки отдела',
+    annualPlanList: 'Список годового плана',
+    
+    // My Documents
+    myDocuments: 'Мои документы',
+    createDocument: 'Создать документ',
+    myApplications: 'Мои заявки',
+    workDocuments: 'Рабочие документы',
+    outgoingDocuments: 'Исходящие документы',
+    personalFile: 'Личное дело (HR)',
+    
+    // Arizalar
+    applications: 'Заявления',
+    hrApplications: 'Кадровые заявления',
+    accountingApplications: 'Бухгалтерские заявления',
+    securityApplications: 'Заявления безопасности',
+    notifications: 'Уведомления',
+    
+    // Search
+    search: 'Поиск...',
+    viewAll: 'Посмотреть все',
+    
+    // My Tasks
+    myTasks: 'Мои задачи',
+    myTasksDesc: 'Управляйте своими задачами на сегодня',
+    addNew: 'Добавить',
+    list: 'Список',
+    calendar: 'Календарь',
+    table: 'Таблица',
+    displayAll: 'Все задачи',
+    recentTasks: 'Недавние задачи',
+    dailyProgress: 'Дневной прогресс',
+    completed: 'выполнено',
+    taskCompleted: 'ВЫПОЛНЕНО',
+    inProgress: 'В процессе',
+    pending: 'Ожидание',
+    mon: 'Пн',
+    tue: 'Вт',
+    wed: 'Ср',
+    thu: 'Чт',
+    fri: 'Пт',
+    sat: 'Сб',
+    sun: 'Вс',
+    today: 'СЕГОДНЯ',
+    taskGroups: 'Группы задач',
+    
+    // Dashboard2
+    colorPalette: 'Выбор цветовой палитры',
+    limits: 'Лимиты',
+    todaysTasks: 'Задачи на сегодня',
+    todaysMeetings: 'Встречи на сегодня',
+    manage: 'Управление',
+    scheduleMeeting: 'Запланировать встречу',
+    activity: 'Активность',
+    projectsWorked: 'Проекты',
+    projects: 'проектов',
+    reminders: 'Напоминания',
+    filter: 'Фильтр',
+    week: 'Неделя',
+    month: 'Месяц',
+    year: 'Год',
+    
+    // Task titles
+    customerJourney: 'Путь клиента',
+    sprintCeremony: 'Церемония спринта',
+    sendReport: 'Отправить отчет',
+    createDataStudio: 'Создать дашборд Data Studio',
+    updateDesignSystem: 'Обновить дизайн-систему',
+    sendMonthlyReport: 'Отправить месячный отчет',
+    sprintPlanning: 'Планирование спринта',
+    reviewDesignComponent: 'Проверить компонент дизайна',
+    sprintRetrospective: 'Ретроспектива спринта',
+    workOnSignIn: 'Работа над входом через Facebook',
+    recoveryPassword: 'Восстановление пароля',
+    createLocalDatabase: 'Создать локальную базу данных',
+    
+    // Kanban
+    projectTitle: 'Дизайн доставки еды Web/App',
+    myTasksColumn: 'Мои задачи',
+    toDo: 'К выполнению',
+    done: 'Выполнено',
+    onHold: 'На паузе',
+    addTask: 'Добавить задачу',
+    addNewTask: 'Добавить новую задачу',
+    listView: 'Список',
+    kanbanView: 'Kanban',
+    filters: 'Фильтры',
+    share: 'Поделиться',
+    taskTitle: 'Название задачи',
+    enterTaskTitle: 'Введите название задачи',
+    priority: 'Приоритет',
+    low: 'Низкий',
+    medium: 'Средний',
+    high: 'Высокий',
+    column: 'Колонка',
+    selectColumn: 'Выберите колонку',
+    
+    // Todo & Progress
+    todos: 'Задачи',
+    items: 'шт',
+    addNewTodo: 'Добавить новую задачу',
+    todoProgress: 'Прогресс задач',
+    
+    // New dashboard keys
+    manageTasksForToday: 'Управляйте задачами на сегодня',
+    edit: 'Редактировать',
+    delete: 'Удалить',
+    editTask: 'Редактировать задачу',
+    saveChanges: 'Сохранить изменения',
+  },
+  en: {
+    // Profile
+    profile: 'Profile',
+    settings: 'Settings',
+    logout: 'Logout',
+    
+    // Dashboard
+    dashboard: 'Dashboard',
+    dashboardEmpty: 'Nothing added. Right-click on menu items and select "Add to Dashboard".',
+    addToDashboard: 'Add to Dashboard',
+    removeFromDashboard: 'Remove from Dashboard',
+    
+    // Messages
+    messages: 'Messages',
+    groups: 'Groups',
+    writeMessage: 'Write Message',
+    writeToGroups: 'Write to Groups',
+    composeMessage: 'Compose Message',
+    unreadMessages: 'Unread Messages',
+    sentMessages: 'Sent Messages',
+    archiveMessages: 'Read Messages (Archive)',
+    createGroup: 'Create Group',
+    editGroup: 'Edit Group',
+    deleteGroup: 'Delete Group',
+    myGroups: 'My Groups',
+    
+    // Sent
+    sent: 'Sent',
+    forExecution: 'For Execution',
+    hrOrders: 'HR Orders (Review)',
+    hrXsb: 'HR XSB (Review)',
+    forAgreement: 'For Agreement',
+    additionalAgreements: 'Additional Agreements (HR)',
+    hrProtocols: 'HR Protocols (For Signature)',
+    
+    // Documents
+    documents: 'Documents',
+    sentDocuments: 'Sent',
+    accountingStatements: 'Accounting Statements',
+    annualSchedule: 'Annual Schedule',
+    departmentApplications: 'Department Applications',
+    annualPlanList: 'Annual Plan List',
+    
+    // My Documents
+    myDocuments: 'My Documents',
+    createDocument: 'Create Document',
+    myApplications: 'My Applications',
+    workDocuments: 'Work Documents',
+    outgoingDocuments: 'Outgoing Documents',
+    personalFile: 'Personal File (HR)',
+    
+    // Arizalar
+    applications: 'Applications',
+    hrApplications: 'HR Applications',
+    accountingApplications: 'Accounting Applications',
+    securityApplications: 'Security Applications',
+    notifications: 'Notifications',
+    
+    // Search
+    search: 'Search...',
+    viewAll: 'View All',
+    
+    // My Tasks
+    myTasks: 'My Tasks',
+    myTasksDesc: 'Manage your tasks for today',
+    addNew: 'Add new',
+    list: 'List',
+    calendar: 'Calendar',
+    table: 'Table',
+    displayAll: 'All tasks',
+    recentTasks: 'Recent Tasks',
+    dailyProgress: 'Daily Progress',
+    completed: 'completed',
+    taskCompleted: 'COMPLETED',
+    inProgress: 'In Progress',
+    pending: 'Pending',
+    mon: 'MON',
+    tue: 'TUE',
+    wed: 'WED',
+    thu: 'THU',
+    fri: 'FRI',
+    sat: 'SAT',
+    sun: 'SUN',
+    today: 'TODAY',
+    taskGroups: 'Task Groups',
+    
+    // Dashboard2
+    colorPalette: 'Color Palette Selection',
+    limits: 'Limits',
+    todaysTasks: "Today's tasks",
+    todaysMeetings: "Today's meetings",
+    manage: 'Manage',
+    scheduleMeeting: 'Schedule meeting',
+    activity: 'Activity',
+    projectsWorked: 'Projects worked',
+    projects: 'projects',
+    reminders: 'Reminders',
+    filter: 'Filter',
+    week: 'Week',
+    month: 'Month',
+    year: 'Year',
+    
+    // Task titles
+    customerJourney: 'Customer Journey',
+    sprintCeremony: 'Sprint Ceremony',
+    sendReport: 'Send report',
+    createDataStudio: 'Create a Data studio Dashboard',
+    updateDesignSystem: 'Update Design System - Forms',
+    sendMonthlyReport: 'Send monthly report to Product Director',
+    sprintPlanning: 'Sprint 21 Planning',
+    reviewDesignComponent: 'Review Design Component',
+    sprintRetrospective: 'Sprint 20 Retrospective',
+    workOnSignIn: 'Work on CJ5: Sign in with Facebook account',
+    recoveryPassword: 'Work on CJ6: Recovery password',
+    createLocalDatabase: 'Create local database for mobile app',
+    
+    // Kanban
+    projectTitle: 'Food delivery Web/App Design',
+    myTasksColumn: 'My Tasks',
+    toDo: 'To Do',
+    done: 'Done',
+    onHold: 'On Hold',
+    addTask: 'Add Task',
+    addNewTask: 'Add New Task',
+    listView: 'List View',
+    kanbanView: 'Kanban View',
+    filters: 'Filters',
+    share: 'Share',
+    taskTitle: 'Task Title',
+    enterTaskTitle: 'Enter task title',
+    priority: 'Priority',
+    low: 'Low',
+    medium: 'Medium',
+    high: 'High',
+    column: 'Column',
+    selectColumn: 'Select column',
+    
+    // Todo & Progress
+    todos: 'Todos',
+    items: 'items',
+    addNewTodo: 'Add new todo',
+    todoProgress: 'Todo Progress',
+    
+    // New dashboard keys
+    manageTasksForToday: 'Manage tasks for today',
+    edit: 'Edit',
+    delete: 'Delete',
+    editTask: 'Edit Task',
+    saveChanges: 'Save Changes',
+  },
+} as const;
+
+export type TranslationKey = keyof typeof translations.uz;
