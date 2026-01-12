@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 const currencies = [
-  { country: "Switzerland", code: "CHF", flag: "🇨🇭" },
-  { country: "Russia", code: "RUB", flag: "🇷🇺" },
-  { country: "USA", code: "USD", flag: "🇺🇸" },
-  { country: "Kazakhstan", code: "KZT", flag: "🇰🇿" },
-  { country: "Turkey", code: "TRY", flag: "🇹🇷" },
-  { country: "Japan", code: "JPY", flag: "🇯🇵" },
+  { country: "Switzerland", code: "CHF", flag: "fi-ch" },
+  { country: "Russia", code: "RUB", flag: "fi-ru" },
+  { country: "USA", code: "USD", flag: "fi-us" },
+  { country: "Kazakhstan", code: "KZT", flag: "fi-kz" },
+  { country: "Turkey", code: "TRY", flag: "fi-tr" },
+  { country: "Japan", code: "JPY", flag: "fi-jp" },
 ];
 
 // Mock rates (in UZS)
@@ -51,7 +51,8 @@ export const CurrencyWidget = () => {
             isAnimating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
           }`}
         >
-          <span className="text-2xl">{currentCurrency.flag}</span>
+         <span className={`fi ${currentCurrency.flag} w-6 h-4 rounded-sm`} />
+
           <div className="text-left">
             <div className="text-xs font-bold text-foreground">{currentCurrency.code}</div>
             <div className="text-[10px] text-muted-foreground">{mockRates[currentCurrency.code].toLocaleString()} UZS</div>
@@ -69,7 +70,8 @@ export const CurrencyWidget = () => {
                 index === currentIndex ? "bg-secondary" : ""
               }`}
             >
-              <span className="text-lg">{currency.flag}</span>
+             <span className={`fi ${currency.flag} w-5 h-4 rounded-sm`} />
+
               <div className="text-left">
                 <div className="text-xs font-bold text-foreground">{currency.code}</div>
                 <div className="text-[10px] text-muted-foreground">{mockRates[currency.code].toLocaleString()} UZS</div>

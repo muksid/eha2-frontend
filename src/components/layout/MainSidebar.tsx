@@ -79,8 +79,8 @@ const ProfileSection = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="p-4 border-b border-border dark:border-white/20 bg-gradient-to-br from-[#8e44ec]/10 via-[#cf5fe2]/5 to-transparent">
-      <DropdownMenu>
+    <div >
+      {/* <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button className="w-full flex items-center justify-between hover:bg-secondary/50 rounded-lg p-2 -m-2 transition-colors group">
             <div className="flex items-center gap-3">
@@ -132,7 +132,7 @@ const ProfileSection = () => {
             <span className="font-medium">{t('logout')}</span>
           </DropdownMenuItem>
         </DropdownMenuContent>
-      </DropdownMenu>
+      </DropdownMenu> */}
     </div>
   );
 };
@@ -450,7 +450,9 @@ export const MainSidebar = ({ isOpen, currentPath }: MainSidebarProps) => {
       <h3 className="text-sm font-semibold text-foreground mb-3">{t('applications')}</h3>
       <nav className="space-y-1">
         {arizalarSubmenus.map((item) => renderSubmenuItem(item))}
+        
       </nav>
+     
     </>
   );
 
@@ -472,6 +474,7 @@ export const MainSidebar = ({ isOpen, currentPath }: MainSidebarProps) => {
         {isDocumentsSectionWithSub && !isSentSection && !isMyDocumentsSection && !isApplicationsSection && renderDocumentsContent()}
         {isMyDocumentsSection && renderMyDocumentsContent()}
         {isApplicationsSection && renderApplicationsContent()}
+     
       </div>
     </aside>
   );

@@ -4,6 +4,8 @@ import { Navbar } from "./Navbar";
 import { IconSidebar } from "./IconSidebar";
 import { MainSidebar } from "./MainSidebar";
 import { Footer } from "./Footer";
+import QuickActions from "./QuickActions";
+
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -48,8 +50,12 @@ export const DashboardLayout = ({ children }: DashboardLayoutProps) => {
           }`}
         >
           {/* Page Content */}
-          <main className="flex-1 p-6 pt-20 overflow-y-auto">
+          <main className="flex-1 p-6 pt-20 overflow-y-auto relative">
+      
             {children}
+            <div className="fixed bottom-[60px] right-[40%] z-50 bg-white/70 backdrop-blur-md rounded-lg shadow-lg p-2">
+              <QuickActions />
+            </div>
           </main>
           
           {/* Footer */}

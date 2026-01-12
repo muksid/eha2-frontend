@@ -375,10 +375,8 @@ const Sent = () => {
               Tozalash
             </Button>
           </div>
-        </div>
-
-        {/* Status Tabs - Above Table */}
-        <div className="flex items-center gap-6 flex-wrap mt-2">
+            {/* Status Tabs - Above Table */}
+        <div className="flex items-center gap-6 flex-wrap my-2">
           {statusTabs.map((tab) => (
             <button
               key={tab.value}
@@ -396,8 +394,7 @@ const Sent = () => {
             </button>
           ))}
         </div>
-
-        {/* Table Section */}
+          {/* Table Section */}
         <div className="rounded-lg overflow-hidden border border-border dark:border-gray-500 m-0">
           <Table>
             <TableHeader className="bg-gradient-to-br from-[#8B5CF6] to-[#7C3AED]">
@@ -448,6 +445,11 @@ const Sent = () => {
             </TableBody>
           </Table>
         </div>
+
+        </div>
+
+      
+      
       </div>
     </DashboardLayout>
   );
