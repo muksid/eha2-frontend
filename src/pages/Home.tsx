@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { DashboardLayout } from "@/components/layout";
 import { Button } from "@/components/ui/button";
+import TuronCard from "../components/assets/turoncard.png"
 import {
   Plus,
   MoreHorizontal,
@@ -755,6 +756,21 @@ const Home = () => {
 
             {/* Right Sidebar */}
             <div className="w-72 space-y-4 shrink-0">
+              <div className="[perspective:1200px]">
+  <div
+    className="w-[370px] h-56 overflow-hidden cursor-pointer
+               ml-[-40px] mt-[-10px] mb-[-20px]
+               transition-all duration-500
+               [transform-style:preserve-3d]
+               hover:[transform:rotateX(-10deg)_rotateY(-20deg)_scale(1.05)]"
+  >
+    <img
+      src={TuronCard}
+      alt=""
+      className="w-full h-full object-cover"
+    />
+  </div>
+</div>
               {/* Todo List */}
               <div className="bg-card rounded-xl border border-border p-4">
                 <div className="flex items-center justify-between mb-3">
@@ -951,55 +967,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              {/* Calendar */}
-              <div className="bg-white dark:bg-card rounded-xl border border-border/50 p-3">
-                <div className="flex items-center gap-2 mb-2">
-                  <Clock className="h-5 w-5 text-primary" />
-                  <h3 className="font-semibold text-foreground text-sm">
-                    {t("calendar")}
-                  </h3>
-                </div>
-                <Calendar
-                  mode="single"
-                  selected={selectedDate}
-                  onSelect={setSelectedDate}
-                  className="rounded-md pointer-events-auto p-0 bg-white dark:bg-card"
-                  modifiers={{
-                    date1: [highlightedDates[0]],
-                    date2: [highlightedDates[1]],
-                    date3: [highlightedDates[2]],
-                    date4: [highlightedDates[3]],
-                    date5: [highlightedDates[4]],
-                  }}
-                  modifiersStyles={{
-                    date1: {
-                      backgroundColor: "#ECE5FC",
-                      color: "#7c3aed",
-                      borderRadius: "8px",
-                    },
-                    date2: {
-                      backgroundColor: "#FFF2E6",
-                      color: "#f97316",
-                      borderRadius: "8px",
-                    },
-                    date3: {
-                      backgroundColor: "#FAE1F4",
-                      color: "#ec4899",
-                      borderRadius: "8px",
-                    },
-                    date4: {
-                      backgroundColor: "#EBF8EF",
-                      color: "#22c55e",
-                      borderRadius: "8px",
-                    },
-                    date5: {
-                      backgroundColor: "#E0F2FE",
-                      color: "#0ea5e9",
-                      borderRadius: "8px",
-                    },
-                  }}
-                />
-              </div>
+             
             </div>
           </div>
         </div>

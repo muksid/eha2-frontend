@@ -174,12 +174,23 @@ All colors MUST be HSL.
 }
 
 
-/* ::-webkit-scrollbar {
-  width: 4px;
-  height: 0px;
-  overflow: hidden;
+
+
+
+
+
+
+::-webkit-scrollbar{
+height: 4px;
+width:4px;
+overflow-y: hidden;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #AE7CF0;
-} */
+ 
+} 
+
+body{
+ overflow-x: hidden;
+}

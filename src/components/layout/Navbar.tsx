@@ -76,6 +76,7 @@ export const Navbar = ({ onToggleSidebar, isSidebarOpen }: NavbarProps) => {
     dark:brightness-0 dark:invert
   "
         />
+        <span className="bg-purple-500 text-white rounded-md px-1 text-[11px] ml-[5px] mt-[-15px]">Beta</span>
         <Button
           variant="ghost"
           size="icon"
